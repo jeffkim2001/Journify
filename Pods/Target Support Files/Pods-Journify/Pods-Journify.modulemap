@@ -1,0 +1,6 @@
+framework module Pods_Journify {
+  umbrella header "Pods-Journify-umbrella.h"
+
+  export *
+  module * { export * }
+}
