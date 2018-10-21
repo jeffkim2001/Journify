@@ -42,6 +42,9 @@ class CreateAnnotationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        eventNameField.placeholderFont = UIFont(name: "Helvetica-Light", size: 20)!
+        eventNameField.font = UIFont(name: "Helvetica-Light", size: 20)!
+        
         eventImage.isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tapGesture)

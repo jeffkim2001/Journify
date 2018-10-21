@@ -18,7 +18,6 @@ class ARViewController: UIViewController {
     @IBOutlet weak var sceneLocationView: SceneLocationView!
     @IBOutlet weak var logOutButton: UIButton!
     @IBOutlet weak var addEventButton: UIButton!
-    @IBOutlet weak var testImage: UIImageView!
     let mapView = MKMapView()
     var userAnnotation: MKPointAnnotation?
     var locationEstimateAnnotation: MKPointAnnotation?

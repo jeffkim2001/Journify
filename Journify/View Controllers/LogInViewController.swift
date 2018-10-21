@@ -25,6 +25,7 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var logInButton: UIButton!
     let textAttributes = [NSAttributedString.Key.font : UIFont(name: "Helvetica-Light", size: 20), NSAttributedString.Key.foregroundColor : UIColor.white]
+    let textFieldAttributes = [NSAttributedString.Key.font : UIFont(name: "Helvetica-Light", size: 14), NSAttributedString.Key.foregroundColor : UIColor.black]
     var allAnnotations: [String:[LocationAnnotationNode]] = [:]
     
     @objc func updateAnnotations(_ notification: NSNotification) {
@@ -38,8 +39,8 @@ class LogInViewController: UIViewController {
         super.viewDidLoad()
         NotificationCenter.default.addObserver(self, selector: #selector(self.updateAnnotations(_:)), name: Notification.Name(rawValue: "preserveAnnotations"), object: nil)
         userNameField.drawTextField()
-        userNameField.placeholder = "Email"
-        passwordField.placeholder = "Password"
+        userNameField.attributedPlaceholder = NSAttributedString(string: "Email", attributes: textFieldAttributes)
+        passwordField.attributedPlaceholder = NSAttributedString(string: "Password", attributes: textFieldAttributes)
         passwordField.drawTextField()
         registerButton.setAttributedTitle(NSAttributedString(string: "Register", attributes: textAttributes), for: .normal)
         logInButton.setAttributedTitle(NSAttributedString(string: "Log In", attributes: textAttributes), for: .normal)

@@ -72,6 +72,31 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		AC2DE5C8217CA3F200729FE1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				ACC254B6217BBD5E001D2B14 /* ARViewController.xib */,
+				ACC254D3217C2B57001D2B14 /* ProfileViewController.xib */,
+				ACC254C9217BE71A001D2B14 /* PinView.xib */,
+				ACC254BA217BCC05001D2B14 /* CreateAnnotationViewController.xib */,
+				ACC254C1217BDADF001D2B14 /* StatCollectionViewCell.xib */,
+				ACC254A2217B974E001D2B14 /* Main.storyboard */,
+				ACC254A7217B974F001D2B14 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		AC2DE5C9217CA41E00729FE1 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				ACC254A0217B974E001D2B14 /* LogInViewController.swift */,
+				ACC254B8217BBE54001D2B14 /* ARViewController.swift */,
+				ACC254D2217C2B56001D2B14 /* ProfileViewController.swift */,
+				ACC254BE217BD218001D2B14 /* CreateAnnotationViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
 		ACC25490217B974D001D2B14 = {
 			isa = PBXGroup;
 			children = (
@@ -94,23 +119,14 @@
 			isa = PBXGroup;
 			children = (
 				ACC2549C217B974E001D2B14 /* AppDelegate.swift */,
-				ACC2549E217B974E001D2B14 /* art.scnassets */,
-				ACC254A0217B974E001D2B14 /* LogInViewController.swift */,
-				ACC254B6217BBD5E001D2B14 /* ARViewController.xib */,
-				ACC254B8217BBE54001D2B14 /* ARViewController.swift */,
-				ACC254D2217C2B56001D2B14 /* ProfileViewController.swift */,
-				ACC254D3217C2B57001D2B14 /* ProfileViewController.xib */,
+				AC2DE5C8217CA3F200729FE1 /* Views */,
+				AC2DE5C9217CA41E00729FE1 /* View Controllers */,
 				ACC254C8217BE71A001D2B14 /* PinView.swift */,
-				ACC254C9217BE71A001D2B14 /* PinView.xib */,
-				ACC254BA217BCC05001D2B14 /* CreateAnnotationViewController.xib */,
 				ACC254C0217BDADF001D2B14 /* StatCollectionViewCell.swift */,
-				ACC254C1217BDADF001D2B14 /* StatCollectionViewCell.xib */,
-				ACC254BE217BD218001D2B14 /* CreateAnnotationViewController.swift */,
-				ACC254B4217BBABB001D2B14 /* GoogleService-Info.plist */,
-				ACC254A2217B974E001D2B14 /* Main.storyboard */,
 				ACC254A5217B974F001D2B14 /* Assets.xcassets */,
-				ACC254A7217B974F001D2B14 /* LaunchScreen.storyboard */,
+				ACC2549E217B974E001D2B14 /* art.scnassets */,
 				ACC254AA217B974F001D2B14 /* Info.plist */,
+				ACC254B4217BBABB001D2B14 /* GoogleService-Info.plist */,
 			);
 			path = Journify;
 			sourceTree = "<group>";

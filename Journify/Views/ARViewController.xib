@@ -22,10 +22,6 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GqU-2B-b9J">
-                        <rect key="frame" x="87" y="304" width="240" height="128"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    </imageView>
                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EQI-Lt-ZLb">
                         <rect key="frame" x="310" y="28" width="96" height="36"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -65,7 +61,6 @@
                 <outlet property="logOutButton" destination="EQI-Lt-ZLb" id="IKI-Yp-yvE"/>
                 <outlet property="profileButton" destination="zji-0p-IPW" id="4En-Xb-j2y"/>
                 <outlet property="sceneLocationView" destination="P8S-AN-l93" id="vfk-hE-axI"/>
-                <outlet property="testImage" destination="GqU-2B-b9J" id="ZWa-CF-SHb"/>
             </connections>
             <point key="canvasLocation" x="100.00000000000001" y="-98.641304347826093"/>
         </viewController>
