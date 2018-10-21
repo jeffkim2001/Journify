@@ -286,6 +286,7 @@ public class SceneLocationView: ARSCNView, ARSCNViewDelegate {
 
         locationNodes.append(locationNode)
         sceneNode?.addChildNode(locationNode)
+        print("ADDDDED BOIS")
     }
 
     /// Determine if scene contains a node with the specified tag

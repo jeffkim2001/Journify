@@ -39,6 +39,7 @@ PODS:
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
   - SCLAlertView (0.8)
+  - SkyFloatingLabelTextField (3.6.0)
   - SVProgressHUD (2.2.5)
 
 DEPENDENCIES:
@@ -47,6 +48,7 @@ DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Database
   - SCLAlertView
+  - SkyFloatingLabelTextField (~> 3.0)
   - SVProgressHUD
 
 SPEC REPOS:
@@ -63,6 +65,7 @@ SPEC REPOS:
     - leveldb-library
     - nanopb
     - SCLAlertView
+    - SkyFloatingLabelTextField
     - SVProgressHUD
 
 SPEC CHECKSUMS:
@@ -78,8 +81,9 @@ SPEC CHECKSUMS:
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
+  SkyFloatingLabelTextField: 38164979b79512f9ff9288ad8acfc4bbf5d843e3
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
 
-PODFILE CHECKSUM: 91e0796c2c9a6570ab9ead0ad68bdd4d7cc29f5e
+PODFILE CHECKSUM: 7d13c968dd3e366af974b994d7c6e64d1ac1f720
 
 COCOAPODS: 1.5.3

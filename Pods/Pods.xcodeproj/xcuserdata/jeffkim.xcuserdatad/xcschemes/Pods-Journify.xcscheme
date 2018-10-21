@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CDD6DB07CBA4F1540A6894182A043857"
+               BlueprintIdentifier = "E99D230B963AA5335C461531C5C66808"
                BuildableName = "Pods_Journify.framework"
                BlueprintName = "Pods-Journify"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "CDD6DB07CBA4F1540A6894182A043857"
+            BlueprintIdentifier = "E99D230B963AA5335C461531C5C66808"
             BuildableName = "Pods_Journify.framework"
             BlueprintName = "Pods-Journify"
             ReferencedContainer = "container:Pods.xcodeproj">

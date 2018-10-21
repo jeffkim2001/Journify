@@ -10,6 +10,7 @@ import UIKit
 import ARKit
 import FirebaseAuth
 import SVProgressHUD
+import SCLAlertView
 
 class LogInViewController: UIViewController {
 
@@ -106,6 +107,16 @@ class LogInViewController: UIViewController {
             else{
                 print("Registration Successful!")
                 SVProgressHUD.dismiss()
+                let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(
+                    kTitleFont: UIFont(name: "HelveticaNeue-Light", size: 20)!,
+                    kTextFont: UIFont(name: "HelveticaNeue-Light", size: 14)!,
+                    kButtonFont: UIFont(name: "HelveticaNeue-Light", size: 14)!,
+                    showCloseButton: false
+                ))
+                alert.addButton("OK", action: {
+                    alert.dismiss(animated: true, completion: nil)
+                })
+                alert.showSuccess("Registration Successful", subTitle: "Your registration was successful!")
                 self.goBackToLogIn()
             }
         }
@@ -126,6 +137,8 @@ class LogInViewController: UIViewController {
                 print("Log in was successful.")
                 SVProgressHUD.dismiss()
                 let userID = Auth.auth().currentUser!.uid
+                let arVC = Bundle.main.loadNibNamed("ARViewController", owner: self, options: nil)!.first as? ARViewController
+                self.navigationController?.pushViewController(arVC!, animated: true)
             }
         })
     }

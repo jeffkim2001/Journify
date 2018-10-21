@@ -14,6 +14,14 @@
 		ACC254A6217B974F001D2B14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACC254A5217B974F001D2B14 /* Assets.xcassets */; };
 		ACC254A9217B974F001D2B14 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACC254A7217B974F001D2B14 /* LaunchScreen.storyboard */; };
 		ACC254B5217BBABC001D2B14 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ACC254B4217BBABB001D2B14 /* GoogleService-Info.plist */; };
+		ACC254B7217BBD5E001D2B14 /* ARViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACC254B6217BBD5E001D2B14 /* ARViewController.xib */; };
+		ACC254B9217BBE54001D2B14 /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC254B8217BBE54001D2B14 /* ARViewController.swift */; };
+		ACC254BB217BCC05001D2B14 /* CreateAnnotationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACC254BA217BCC05001D2B14 /* CreateAnnotationViewController.xib */; };
+		ACC254BF217BD218001D2B14 /* CreateAnnotationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC254BE217BD218001D2B14 /* CreateAnnotationViewController.swift */; };
+		ACC254C2217BDADF001D2B14 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC254C0217BDADF001D2B14 /* PhotoCollectionViewCell.swift */; };
+		ACC254C3217BDADF001D2B14 /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACC254C1217BDADF001D2B14 /* PhotoCollectionViewCell.xib */; };
+		ACC254CA217BE71A001D2B14 /* PinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC254C8217BE71A001D2B14 /* PinView.swift */; };
+		ACC254CB217BE71A001D2B14 /* PinView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACC254C9217BE71A001D2B14 /* PinView.xib */; };
 		B975EAD5AFE5B75283739644 /* Pods_Journify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE815F84E8F6A00B07EA3668 /* Pods_Journify.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +37,14 @@
 		ACC254A8217B974F001D2B14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ACC254AA217B974F001D2B14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACC254B4217BBABB001D2B14 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		ACC254B6217BBD5E001D2B14 /* ARViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ARViewController.xib; sourceTree = "<group>"; };
+		ACC254B8217BBE54001D2B14 /* ARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
+		ACC254BA217BCC05001D2B14 /* CreateAnnotationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateAnnotationViewController.xib; sourceTree = "<group>"; };
+		ACC254BE217BD218001D2B14 /* CreateAnnotationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAnnotationViewController.swift; sourceTree = "<group>"; };
+		ACC254C0217BDADF001D2B14 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		ACC254C1217BDADF001D2B14 /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
+		ACC254C8217BE71A001D2B14 /* PinView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinView.swift; sourceTree = "<group>"; };
+		ACC254C9217BE71A001D2B14 /* PinView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PinView.xib; sourceTree = "<group>"; };
 		AE815F84E8F6A00B07EA3668 /* Pods_Journify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Journify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -76,6 +92,14 @@
 				ACC2549C217B974E001D2B14 /* AppDelegate.swift */,
 				ACC2549E217B974E001D2B14 /* art.scnassets */,
 				ACC254A0217B974E001D2B14 /* LogInViewController.swift */,
+				ACC254B6217BBD5E001D2B14 /* ARViewController.xib */,
+				ACC254B8217BBE54001D2B14 /* ARViewController.swift */,
+				ACC254C8217BE71A001D2B14 /* PinView.swift */,
+				ACC254C9217BE71A001D2B14 /* PinView.xib */,
+				ACC254BA217BCC05001D2B14 /* CreateAnnotationViewController.xib */,
+				ACC254C0217BDADF001D2B14 /* PhotoCollectionViewCell.swift */,
+				ACC254C1217BDADF001D2B14 /* PhotoCollectionViewCell.xib */,
+				ACC254BE217BD218001D2B14 /* CreateAnnotationViewController.swift */,
 				ACC254B4217BBABB001D2B14 /* GoogleService-Info.plist */,
 				ACC254A2217B974E001D2B14 /* Main.storyboard */,
 				ACC254A5217B974F001D2B14 /* Assets.xcassets */,
@@ -154,9 +178,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACC254CB217BE71A001D2B14 /* PinView.xib in Resources */,
+				ACC254BB217BCC05001D2B14 /* CreateAnnotationViewController.xib in Resources */,
 				ACC2549F217B974E001D2B14 /* art.scnassets in Resources */,
+				ACC254B7217BBD5E001D2B14 /* ARViewController.xib in Resources */,
 				ACC254A9217B974F001D2B14 /* LaunchScreen.storyboard in Resources */,
 				ACC254B5217BBABC001D2B14 /* GoogleService-Info.plist in Resources */,
+				ACC254C3217BDADF001D2B14 /* PhotoCollectionViewCell.xib in Resources */,
 				ACC254A6217B974F001D2B14 /* Assets.xcassets in Resources */,
 				ACC254A4217B974E001D2B14 /* Main.storyboard in Resources */,
 			);
@@ -195,6 +223,7 @@
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/SCLAlertView/SCLAlertView.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SkyFloatingLabelTextField/SkyFloatingLabelTextField.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -205,6 +234,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCLAlertView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SkyFloatingLabelTextField.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -220,6 +250,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACC254B9217BBE54001D2B14 /* ARViewController.swift in Sources */,
+				ACC254C2217BDADF001D2B14 /* PhotoCollectionViewCell.swift in Sources */,
+				ACC254CA217BE71A001D2B14 /* PinView.swift in Sources */,
+				ACC254BF217BD218001D2B14 /* CreateAnnotationViewController.swift in Sources */,
 				ACC254A1217B974E001D2B14 /* LogInViewController.swift in Sources */,
 				ACC2549D217B974E001D2B14 /* AppDelegate.swift in Sources */,
 			);

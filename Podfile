@@ -11,6 +11,6 @@ target 'Journify' do
     pod 'Firebase', '~>5.0.0'
     pod 'SVProgressHUD'
     pod 'SCLAlertView'
-
+    pod 'SkyFloatingLabelTextField', '~> 3.0'
 
 end
