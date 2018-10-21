@@ -13,7 +13,7 @@ import CoreLocation
 import Firebase
 
 protocol CreateAnnotationDelegate {
-    func createAnnotation(eventName: String, email: String)
+    func createAnnotation(eventName: String, email: String, photo: UIImage?, elaboration: String)
 }
 
 class CreateAnnotationViewController: UIViewController {
@@ -70,7 +70,7 @@ class CreateAnnotationViewController: UIViewController {
     }
     
     @IBAction func postPressed(_ sender: Any) {
-        self.delegate.createAnnotation(eventName: eventNameField.text!, email: (Auth.auth().currentUser?.email)!)
+        self.delegate.createAnnotation(eventName: eventNameField.text!, email: (Auth.auth().currentUser?.email)!, photo: imageArray[0], elaboration: descriptionField.text!)
         self.dismiss(animated: true, completion: nil)
     }
     

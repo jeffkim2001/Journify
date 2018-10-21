@@ -14,12 +14,15 @@ protocol PinDelegate {
 
 class PinView: UIView {
 
+    @IBOutlet weak var eventPhoto: UIImageView!
+    @IBOutlet weak var eventDescription: UILabel!
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var eventTitle: UILabel!
     @IBOutlet weak var userEmail: UILabel!
     var eventName: String = ""
     var email: String = ""
-    var delegate: PinDelegate!
+    var photo: UIImage?
+    var elaboration: String = ""
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -34,16 +37,9 @@ class PinView: UIView {
     private func commonInit() {
         Bundle.main.loadNibNamed("PinView", owner: self, options: nil)
         addSubview(contentView)
+        eventPhoto.isHidden = false
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        eventTitle.text = eventName
-        userEmail.text = email
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(openDetails))
-        self.addGestureRecognizer(tapGesture)
-    }
-    
-    @objc func openDetails() {
-        self.delegate.openDetailScreen()
     }
 
 }

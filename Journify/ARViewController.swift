@@ -24,6 +24,9 @@ class ARViewController: UIViewController {
     var locationManager = CLLocationManager()
     var updateUserLocationTimer: Timer?
     var currentLocation: CLLocation!
+    var tappedNode: LocationAnnotationNode!
+    var nodes: [LocationAnnotationNode] = []
+
     
     ///Whether to show a map view
     ///The initial value is respected
@@ -72,7 +75,7 @@ class ARViewController: UIViewController {
             sceneLocationView.showFeaturePoints = true
         }
         
-//        buildDemoData().forEach { sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: $0) }
+        nodes.forEach { sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: $0) }
         
         if showMapView {
             mapView.delegate = self
@@ -200,7 +203,7 @@ class ARViewController: UIViewController {
         }
     }
     
-    
+//
 //    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 //        super.touchesBegan(touches, with: event)
 //
@@ -214,7 +217,7 @@ class ARViewController: UIViewController {
 //        if mapView == touchView || mapView.recursiveSubviews().contains(touchView) {
 //            centerMapOnUserLocation = false
 //        } else {
-//            let location = CGPoint(x: 279.3333282470703, y: 396.6666564941406)
+//            let location = touch.location(in: self.view)
 //            if location.x <= 40 && adjustNorthByTappingSidesOfScreen {
 //                print("left side of the screen")
 //                sceneLocationView.moveSceneHeadingAntiClockwise()
@@ -240,25 +243,27 @@ class ARViewController: UIViewController {
         }
     }
     
-    func constructPin(eventName: String, email: String) -> UIImage {
+    func constructPin(eventName: String, email: String, photo: UIImage?, elaboration: String) -> UIImage {
         let pinView = PinView(frame: CGRect(x: 0, y: 0, width: 237, height: 241))
-        pinView.delegate = self
+        pinView.eventPhoto.isHidden = false
         pinView.eventTitle.text = eventName
         pinView.userEmail.text = email
+        pinView.eventDescription.text = elaboration
+        if let thePic = photo {
+            pinView.eventPhoto.image = thePic
+        }
+        else {
+            pinView.eventPhoto.isHidden = true
+            let width = NSLayoutConstraint(item: self, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 150)
+            pinView.eventDescription.addConstraint(width)
+        }
         return pinView.asImage()
     }
 }
 
-extension ARViewController: PinDelegate {
-    func openDetailScreen() {
-        
-    }
-    
-}
-
 extension ARViewController: CreateAnnotationDelegate {
-    func createAnnotation(eventName: String, email: String) {
-        var nodes: [LocationAnnotationNode] = []
+    func createAnnotation(eventName: String, email: String, photo: UIImage?, elaboration: String) {
+        print("KKKKKK", elaboration)
         let location = CGPoint(x: 279.3333282470703, y: 396.6666564941406)
         if location.x <= 40 && adjustNorthByTappingSidesOfScreen {
             print("left side of the screen")
@@ -267,7 +272,7 @@ extension ARViewController: CreateAnnotationDelegate {
             print("right side of the screen")
             sceneLocationView.moveSceneHeadingClockwise()
         } else {
-            let image = constructPin(eventName: eventName, email: email)
+            let image = constructPin(eventName: eventName, email: email, photo: photo, elaboration: elaboration)
             let annotationNode = LocationAnnotationNode(location: nil, image: image)
             annotationNode.scaleRelativeToDistance = true
             sceneLocationView.addLocationNodeForCurrentPosition(locationNode: annotationNode)
