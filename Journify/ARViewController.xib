@@ -26,6 +26,19 @@
                         <rect key="frame" x="87" y="304" width="240" height="128"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EQI-Lt-ZLb">
+                        <rect key="frame" x="310" y="28" width="96" height="36"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="20"/>
+                        <inset key="titleEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                        <state key="normal" title="Log Out">
+                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                        <connections>
+                            <action selector="logOutPressed:" destination="fzr-Ra-of9" eventType="touchUpInside" id="2pQ-Sf-mki"/>
+                        </connections>
+                    </button>
                     <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awM-CH-4oX">
                         <rect key="frame" x="180" y="650" width="62" height="65"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -35,12 +48,22 @@
                             <action selector="addEventPressed:" destination="fzr-Ra-of9" eventType="touchUpInside" id="0oh-A1-l4y"/>
                         </connections>
                     </button>
+                    <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zji-0p-IPW">
+                        <rect key="frame" x="330" y="650" width="66" height="66"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <state key="normal" title="Button" image="profile"/>
+                        <connections>
+                            <action selector="profilePressed:" destination="fzr-Ra-of9" eventType="touchUpInside" id="pVD-A5-8SD"/>
+                        </connections>
+                    </button>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <viewLayoutGuide key="safeArea" id="NAV-10-qza"/>
             </view>
             <connections>
                 <outlet property="addEventButton" destination="awM-CH-4oX" id="b9V-Wv-YBc"/>
+                <outlet property="logOutButton" destination="EQI-Lt-ZLb" id="IKI-Yp-yvE"/>
+                <outlet property="profileButton" destination="zji-0p-IPW" id="4En-Xb-j2y"/>
                 <outlet property="sceneLocationView" destination="P8S-AN-l93" id="vfk-hE-axI"/>
                 <outlet property="testImage" destination="GqU-2B-b9J" id="ZWa-CF-SHb"/>
             </connections>
@@ -49,5 +72,6 @@
     </objects>
     <resources>
         <image name="add" width="500" height="500"/>
+        <image name="profile" width="100" height="100"/>
     </resources>
 </document>

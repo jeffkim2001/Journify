@@ -12,11 +12,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CreateAnnotationViewController" customModule="Journify" customModuleProvider="target">
             <connections>
+                <outlet property="addImageButton" destination="rxJ-Kz-Jb9" id="1u4-uq-W1g"/>
                 <outlet property="cancelButton" destination="Lot-U0-C4A" id="6Dg-5c-s3A"/>
                 <outlet property="contentView" destination="9oE-cn-tvD" id="3HC-TN-izQ"/>
                 <outlet property="descriptionField" destination="bhp-4T-VA3" id="v8e-m4-Nh5"/>
+                <outlet property="eventImage" destination="m7K-Ek-lBl" id="W2U-he-Ybd"/>
                 <outlet property="eventNameField" destination="dbb-ds-yrw" id="EWj-GO-s2O"/>
-                <outlet property="photoCollectionView" destination="N8s-4d-FoR" id="QPa-32-rvP"/>
                 <outlet property="postButton" destination="UF5-HZ-lzh" id="XVH-pD-jhs"/>
                 <outlet property="view" destination="tFg-WD-0Iy" id="OrH-Gd-cje"/>
                 <outlet property="visualEffectView" destination="gBM-7l-Qkj" id="cVx-hW-pbT"/>
@@ -64,17 +65,6 @@
                                 <action selector="postPressed:" destination="-1" eventType="touchUpInside" id="6ND-ph-Xjo"/>
                             </connections>
                         </button>
-                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="N8s-4d-FoR">
-                            <rect key="frame" x="8" y="304" width="378" height="296"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="r5X-qg-Xyi">
-                                <size key="itemSize" width="50" height="50"/>
-                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            </collectionViewFlowLayout>
-                        </collectionView>
                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dbb-ds-yrw" customClass="SkyFloatingLabelTextField" customModule="SkyFloatingLabelTextField">
                             <rect key="frame" x="8" y="8" width="378" height="52"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -90,8 +80,13 @@
                             <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m7K-Ek-lBl">
+                            <rect key="frame" x="77" y="328" width="240" height="237"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        </imageView>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rxJ-Kz-Jb9">
-                            <rect key="frame" x="343" y="556" width="43" height="44"/>
+                            <rect key="frame" x="176" y="424" width="43" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" image="add"/>
                             <connections>

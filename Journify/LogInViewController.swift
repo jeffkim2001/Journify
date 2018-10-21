@@ -56,6 +56,15 @@ class LogInViewController: UIViewController {
         
         // Run the view's session
         sceneView.session.run(configuration)
+        self.passwordField.text = ""
+        self.userNameField.text = ""
+        self.cancelButton.alpha = 0.0
+        self.registerButton.alpha = 0.0
+        self.logInButton.alpha = 1.0
+        self.registerFromLogInButton.alpha = 1.0
+        self.appIcon.alpha = 1.0
+        self.passwordField.alpha = 1.0
+        self.userNameField.alpha = 1.0
     }
     
     @IBAction func registerPressed(_ sender: Any) {

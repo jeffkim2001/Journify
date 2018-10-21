@@ -8,9 +8,10 @@
 
 import UIKit
 
-class PhotoCollectionViewCell: UICollectionViewCell {
+class StatCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var selectedImage: UIImageView!
+    @IBOutlet weak var statName: UILabel!
+    @IBOutlet weak var stat: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -18,11 +18,12 @@ protocol CreateAnnotationDelegate {
 
 class CreateAnnotationViewController: UIViewController {
 
+    @IBOutlet weak var addImageButton: UIButton!
     @IBOutlet weak var visualEffectView: UIVisualEffectView!
     @IBOutlet weak var contentView: UIView!
     @IBOutlet weak var cancelButton: UIButton!
     @IBOutlet weak var postButton: UIButton!
-    @IBOutlet weak var photoCollectionView: UICollectionView!
+    @IBOutlet weak var eventImage: UIImageView!
     @IBOutlet weak var eventNameField: SkyFloatingLabelTextField!
     @IBOutlet weak var descriptionField: UITextView!
     let imagePicker = UIImagePickerController()
@@ -41,13 +42,10 @@ class CreateAnnotationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let nibName = UINib(nibName: "PhotoCollectionViewCell", bundle:nil)
-        photoCollectionView.register(nibName, forCellWithReuseIdentifier: "photoCollectionViewCell")
-        photoCollectionView.delegate = self
-        photoCollectionView.dataSource = self
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tapGesture)
-        
+        addImageButton.isHidden = false
+        descriptionField.text = "Description..."
     }
     
     override func viewDidLayoutSubviews() {
@@ -70,7 +68,7 @@ class CreateAnnotationViewController: UIViewController {
     }
     
     @IBAction func postPressed(_ sender: Any) {
-        self.delegate.createAnnotation(eventName: eventNameField.text!, email: (Auth.auth().currentUser?.email)!, photo: imageArray[0], elaboration: descriptionField.text!)
+        self.delegate.createAnnotation(eventName: eventNameField.text!, email: (Auth.auth().currentUser?.email)!, photo: eventImage.image, elaboration: descriptionField.text!)
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -87,30 +85,6 @@ class CreateAnnotationViewController: UIViewController {
     
 }
 
-extension CreateAnnotationViewController: UICollectionViewDelegate {
-    
-}
-
-extension CreateAnnotationViewController: UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 87, height: 118);
-    }
-}
-
-extension CreateAnnotationViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return imageArray.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photoCollectionViewCell", for: indexPath) as! PhotoCollectionViewCell
-        cell.selectedImage.image = imageArray[indexPath.item]
-        return cell
-    }
-
-}
-
 extension CreateAnnotationViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -124,7 +98,9 @@ extension CreateAnnotationViewController: UIImagePickerControllerDelegate, UINav
         if let image = info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as? UIImage {
             imagePicker.dismiss(animated: true, completion: nil)
             imageArray.append(image)
-            photoCollectionView.reloadData()
+            eventImage.image = image
+            eventImage.backgroundColor = UIColor.clear
+            addImageButton.isHidden = true
             let imageData = image.jpegData(compressionQuality: 0.01) as NSData?
             let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
             let fileURL = documentsURL.appendingPathComponent("tempImage.jpeg")

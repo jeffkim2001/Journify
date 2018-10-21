@@ -11,12 +11,13 @@ import SceneKit
 import MapKit
 import ARCL
 import CoreLocation
+import Firebase
 
 @available(iOS 11.0, *)
 class ARViewController: UIViewController {
     @IBOutlet weak var sceneLocationView: SceneLocationView!
+    @IBOutlet weak var logOutButton: UIButton!
     @IBOutlet weak var addEventButton: UIButton!
-    
     @IBOutlet weak var testImage: UIImageView!
     let mapView = MKMapView()
     var userAnnotation: MKPointAnnotation?
@@ -26,7 +27,7 @@ class ARViewController: UIViewController {
     var currentLocation: CLLocation!
     var tappedNode: LocationAnnotationNode!
     var nodes: [LocationAnnotationNode] = []
-
+    @IBOutlet weak var profileButton: UIButton!
     
     ///Whether to show a map view
     ///The initial value is respected
@@ -47,6 +48,7 @@ class ARViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        logOutButton.layer.cornerRadius = 5.0
         locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.startUpdatingLocation()
@@ -232,6 +234,30 @@ class ARViewController: UIViewController {
 //            }
 //        }
 //    }
+    
+    @IBAction func logOutPressed(_ sender: Any) {
+        do {
+            try Auth.auth().signOut()
+        }
+            
+        catch {
+            print("There was an error while signing out.")
+        }
+        
+        guard (navigationController?.popToRootViewController(animated: true)) != nil
+            else {
+                print("No view controllers to be popped off.")
+                return
+        }
+    }
+    
+    @IBAction func profilePressed(_ sender: Any) {
+        let profileVC = Bundle.main.loadNibNamed("ProfileViewController", owner: self, options: nil)!.first as? ProfileViewController
+        profileVC?.view
+        let annotationDict = ["annotations" : nodes]
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateAnnotations"), object: nil, userInfo: annotationDict)
+        self.navigationController?.pushViewController(profileVC!, animated: true)
+    }
     
     @IBAction func addEventPressed(_ sender: Any) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.0) {

@@ -18,10 +18,12 @@
 		ACC254B9217BBE54001D2B14 /* ARViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC254B8217BBE54001D2B14 /* ARViewController.swift */; };
 		ACC254BB217BCC05001D2B14 /* CreateAnnotationViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACC254BA217BCC05001D2B14 /* CreateAnnotationViewController.xib */; };
 		ACC254BF217BD218001D2B14 /* CreateAnnotationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC254BE217BD218001D2B14 /* CreateAnnotationViewController.swift */; };
-		ACC254C2217BDADF001D2B14 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC254C0217BDADF001D2B14 /* PhotoCollectionViewCell.swift */; };
-		ACC254C3217BDADF001D2B14 /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACC254C1217BDADF001D2B14 /* PhotoCollectionViewCell.xib */; };
+		ACC254C2217BDADF001D2B14 /* StatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC254C0217BDADF001D2B14 /* StatCollectionViewCell.swift */; };
+		ACC254C3217BDADF001D2B14 /* StatCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACC254C1217BDADF001D2B14 /* StatCollectionViewCell.xib */; };
 		ACC254CA217BE71A001D2B14 /* PinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC254C8217BE71A001D2B14 /* PinView.swift */; };
 		ACC254CB217BE71A001D2B14 /* PinView.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACC254C9217BE71A001D2B14 /* PinView.xib */; };
+		ACC254D4217C2B57001D2B14 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC254D2217C2B56001D2B14 /* ProfileViewController.swift */; };
+		ACC254D5217C2B57001D2B14 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = ACC254D3217C2B57001D2B14 /* ProfileViewController.xib */; };
 		B975EAD5AFE5B75283739644 /* Pods_Journify.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE815F84E8F6A00B07EA3668 /* Pods_Journify.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,10 +43,12 @@
 		ACC254B8217BBE54001D2B14 /* ARViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARViewController.swift; sourceTree = "<group>"; };
 		ACC254BA217BCC05001D2B14 /* CreateAnnotationViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CreateAnnotationViewController.xib; sourceTree = "<group>"; };
 		ACC254BE217BD218001D2B14 /* CreateAnnotationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAnnotationViewController.swift; sourceTree = "<group>"; };
-		ACC254C0217BDADF001D2B14 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
-		ACC254C1217BDADF001D2B14 /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
+		ACC254C0217BDADF001D2B14 /* StatCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatCollectionViewCell.swift; sourceTree = "<group>"; };
+		ACC254C1217BDADF001D2B14 /* StatCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StatCollectionViewCell.xib; sourceTree = "<group>"; };
 		ACC254C8217BE71A001D2B14 /* PinView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PinView.swift; sourceTree = "<group>"; };
 		ACC254C9217BE71A001D2B14 /* PinView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PinView.xib; sourceTree = "<group>"; };
+		ACC254D2217C2B56001D2B14 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		ACC254D3217C2B57001D2B14 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		AE815F84E8F6A00B07EA3668 /* Pods_Journify.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Journify.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -94,11 +98,13 @@
 				ACC254A0217B974E001D2B14 /* LogInViewController.swift */,
 				ACC254B6217BBD5E001D2B14 /* ARViewController.xib */,
 				ACC254B8217BBE54001D2B14 /* ARViewController.swift */,
+				ACC254D2217C2B56001D2B14 /* ProfileViewController.swift */,
+				ACC254D3217C2B57001D2B14 /* ProfileViewController.xib */,
 				ACC254C8217BE71A001D2B14 /* PinView.swift */,
 				ACC254C9217BE71A001D2B14 /* PinView.xib */,
 				ACC254BA217BCC05001D2B14 /* CreateAnnotationViewController.xib */,
-				ACC254C0217BDADF001D2B14 /* PhotoCollectionViewCell.swift */,
-				ACC254C1217BDADF001D2B14 /* PhotoCollectionViewCell.xib */,
+				ACC254C0217BDADF001D2B14 /* StatCollectionViewCell.swift */,
+				ACC254C1217BDADF001D2B14 /* StatCollectionViewCell.xib */,
 				ACC254BE217BD218001D2B14 /* CreateAnnotationViewController.swift */,
 				ACC254B4217BBABB001D2B14 /* GoogleService-Info.plist */,
 				ACC254A2217B974E001D2B14 /* Main.storyboard */,
@@ -184,8 +190,9 @@
 				ACC254B7217BBD5E001D2B14 /* ARViewController.xib in Resources */,
 				ACC254A9217B974F001D2B14 /* LaunchScreen.storyboard in Resources */,
 				ACC254B5217BBABC001D2B14 /* GoogleService-Info.plist in Resources */,
-				ACC254C3217BDADF001D2B14 /* PhotoCollectionViewCell.xib in Resources */,
+				ACC254C3217BDADF001D2B14 /* StatCollectionViewCell.xib in Resources */,
 				ACC254A6217B974F001D2B14 /* Assets.xcassets in Resources */,
+				ACC254D5217C2B57001D2B14 /* ProfileViewController.xib in Resources */,
 				ACC254A4217B974E001D2B14 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -251,9 +258,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACC254B9217BBE54001D2B14 /* ARViewController.swift in Sources */,
-				ACC254C2217BDADF001D2B14 /* PhotoCollectionViewCell.swift in Sources */,
+				ACC254C2217BDADF001D2B14 /* StatCollectionViewCell.swift in Sources */,
 				ACC254CA217BE71A001D2B14 /* PinView.swift in Sources */,
 				ACC254BF217BD218001D2B14 /* CreateAnnotationViewController.swift in Sources */,
+				ACC254D4217C2B57001D2B14 /* ProfileViewController.swift in Sources */,
 				ACC254A1217B974E001D2B14 /* LogInViewController.swift in Sources */,
 				ACC2549D217B974E001D2B14 /* AppDelegate.swift in Sources */,
 			);
