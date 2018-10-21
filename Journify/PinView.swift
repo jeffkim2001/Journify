@@ -14,6 +14,7 @@ protocol PinDelegate {
 
 class PinView: UIView {
 
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var eventPhoto: UIImageView!
     @IBOutlet weak var eventDescription: UILabel!
     @IBOutlet var contentView: UIView!

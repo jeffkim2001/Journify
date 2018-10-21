@@ -26,7 +26,7 @@ class ARViewController: UIViewController {
     var updateUserLocationTimer: Timer?
     var currentLocation: CLLocation!
     var tappedNode: LocationAnnotationNode!
-    var nodes: [LocationAnnotationNode] = []
+    var currentUser: String = ""
     @IBOutlet weak var profileButton: UIButton!
     
     ///Whether to show a map view
@@ -46,8 +46,28 @@ class ARViewController: UIViewController {
     
     var adjustNorthByTappingSidesOfScreen = false
     
+    var allAnnotations: [String: [LocationAnnotationNode]] = [:]
+    var nodes: [LocationAnnotationNode] = []
+    
+    @objc func updateAnnotations(_ notification: NSNotification) {
+        if let annotations = notification.userInfo?["annotations"] as? [String:[LocationAnnotationNode]] {
+            allAnnotations = annotations
+        }
+        if let userNodes = allAnnotations[currentUser] {
+            nodes = userNodes
+            print("AA", nodes)
+            for index in 0..<nodes.count {
+                let annotationNode = LocationAnnotationNode(location: nodes[index].location, image: nodes[index].image, date: nodes[index].date)
+                annotationNode.scaleRelativeToDistance = true
+                sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: annotationNode)
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        currentUser = (Auth.auth().currentUser?.email)!
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateAnnotations(_:)), name: Notification.Name(rawValue: "transferAnnotations"), object: nil)
         logOutButton.layer.cornerRadius = 5.0
         locationManager.requestWhenInUseAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -57,8 +77,6 @@ class ARViewController: UIViewController {
         infoLabel.textAlignment = .left
         infoLabel.textColor = UIColor.white
         infoLabel.numberOfLines = 0
-        sceneLocationView.addSubview(infoLabel)
-        
         updateInfoLabelTimer = Timer.scheduledTimer(
             timeInterval: 0.1,
             target: self,
@@ -76,9 +94,6 @@ class ARViewController: UIViewController {
         if displayDebugging {
             sceneLocationView.showFeaturePoints = true
         }
-        
-        nodes.forEach { sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: $0) }
-        
         if showMapView {
             mapView.delegate = self
             mapView.showsUserLocation = true
@@ -243,7 +258,10 @@ class ARViewController: UIViewController {
         catch {
             print("There was an error while signing out.")
         }
-        
+        allAnnotations[currentUser] = sceneLocationView.locationNodes as! [LocationAnnotationNode]
+        let annotationDict = ["annotations" : allAnnotations]
+        print("HA", annotationDict)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "preserveAnnotations"), object: nil, userInfo: annotationDict)
         guard (navigationController?.popToRootViewController(animated: true)) != nil
             else {
                 print("No view controllers to be popped off.")
@@ -269,26 +287,25 @@ class ARViewController: UIViewController {
         }
     }
     
-    func constructPin(eventName: String, email: String, photo: UIImage?, elaboration: String) -> UIImage {
-        let pinView = PinView(frame: CGRect(x: 0, y: 0, width: 237, height: 241))
+    func constructPin(eventName: String, email: String, photo: UIImage?, elaboration: String, date: String) -> UIImage {
+        let pinView = PinView(frame: CGRect(x: 0, y: 0, width: 276, height: 266))
         pinView.eventPhoto.isHidden = false
         pinView.eventTitle.text = eventName
         pinView.userEmail.text = email
         pinView.eventDescription.text = elaboration
+        pinView.dateLabel.text = date
         if let thePic = photo {
             pinView.eventPhoto.image = thePic
         }
         else {
             pinView.eventPhoto.isHidden = true
-            let width = NSLayoutConstraint(item: self, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: 150)
-            pinView.eventDescription.addConstraint(width)
         }
         return pinView.asImage()
     }
 }
 
 extension ARViewController: CreateAnnotationDelegate {
-    func createAnnotation(eventName: String, email: String, photo: UIImage?, elaboration: String) {
+    func createAnnotation(eventName: String, email: String, photo: UIImage?, elaboration: String, date: Date) {
         print("KKKKKK", elaboration)
         let location = CGPoint(x: 279.3333282470703, y: 396.6666564941406)
         if location.x <= 40 && adjustNorthByTappingSidesOfScreen {
@@ -298,8 +315,11 @@ extension ARViewController: CreateAnnotationDelegate {
             print("right side of the screen")
             sceneLocationView.moveSceneHeadingClockwise()
         } else {
-            let image = constructPin(eventName: eventName, email: email, photo: photo, elaboration: elaboration)
-            let annotationNode = LocationAnnotationNode(location: nil, image: image)
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MMM dd, yyyy"
+            let dateString = dateFormatter.string(from: date)
+            let image = constructPin(eventName: eventName, email: email, photo: photo, elaboration: elaboration, date: dateString)
+            let annotationNode = LocationAnnotationNode(location: nil, image: image, date: dateString)
             annotationNode.scaleRelativeToDistance = true
             sceneLocationView.addLocationNodeForCurrentPosition(locationNode: annotationNode)
             nodes.append(annotationNode)

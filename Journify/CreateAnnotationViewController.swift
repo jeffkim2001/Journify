@@ -13,7 +13,7 @@ import CoreLocation
 import Firebase
 
 protocol CreateAnnotationDelegate {
-    func createAnnotation(eventName: String, email: String, photo: UIImage?, elaboration: String)
+    func createAnnotation(eventName: String, email: String, photo: UIImage?, elaboration: String, date: Date)
 }
 
 class CreateAnnotationViewController: UIViewController {
@@ -42,10 +42,28 @@ class CreateAnnotationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        eventImage.isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tapGesture)
+        let tapGesture2 = UITapGestureRecognizer(target: self, action: #selector(CreateAnnotationViewController.clearPlaceholder))
+        descriptionField.addGestureRecognizer(tapGesture2)
+        let tapGesture3 = UITapGestureRecognizer(target: self, action: #selector(CreateAnnotationViewController.replacePhoto))
+        eventImage.addGestureRecognizer(tapGesture3)
         addImageButton.isHidden = false
         descriptionField.text = "Description..."
+    }
+    
+    @objc func clearPlaceholder() {
+        descriptionField.text = ""
+        descriptionField.becomeFirstResponder()
+    }
+    
+    @objc func replacePhoto() {
+        print("TAPPED")
+        self.imagePicker.delegate = self
+        self.imagePicker.sourceType = .photoLibrary
+        self.imagePicker.allowsEditing = false
+        self.present(self.imagePicker, animated: true, completion: nil)
     }
     
     override func viewDidLayoutSubviews() {
@@ -68,15 +86,12 @@ class CreateAnnotationViewController: UIViewController {
     }
     
     @IBAction func postPressed(_ sender: Any) {
-        self.delegate.createAnnotation(eventName: eventNameField.text!, email: (Auth.auth().currentUser?.email)!, photo: eventImage.image, elaboration: descriptionField.text!)
+        self.delegate.createAnnotation(eventName: eventNameField.text!, email: (Auth.auth().currentUser?.email)!, photo: eventImage.image, elaboration: descriptionField.text!, date: Date())
         self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func addPhotoPressed(_ sender: Any) {
-        self.imagePicker.delegate = self
-        self.imagePicker.sourceType = .photoLibrary
-        self.imagePicker.allowsEditing = false
-        self.present(self.imagePicker, animated: true, completion: nil)
+        replacePhoto()
     }
     
     @objc func dismissKeyboard() {

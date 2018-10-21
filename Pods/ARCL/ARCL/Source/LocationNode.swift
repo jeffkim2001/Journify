@@ -71,9 +71,11 @@ open class LocationAnnotationNode: LocationNode {
     ///For landmarks in the distance, the default is correct
     public var scaleRelativeToDistance = false
     
-    public init(location: CLLocation?, image: UIImage) {
+    public var date: String!
+    
+    public init(location: CLLocation?, image: UIImage, date: String) {
         self.image = image
-        
+        self.date = date
         let plane = SCNPlane(width: image.size.width / 100, height: image.size.height / 100)
         plane.firstMaterial!.diffuse.contents = image
         plane.firstMaterial!.lightingModel = .constant

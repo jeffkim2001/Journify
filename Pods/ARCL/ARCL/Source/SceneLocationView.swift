@@ -54,7 +54,7 @@ public class SceneLocationView: ARSCNView, ARSCNViewDelegate {
     ///When set to true, displays an axes node at the start of the scene
     public var showAxesNode = false
 
-    private(set) var locationNodes = [LocationNode]()
+    public var locationNodes = [LocationNode]()
 
     private var sceneLocationEstimates = [SceneLocationEstimate]()
 
@@ -286,7 +286,6 @@ public class SceneLocationView: ARSCNView, ARSCNViewDelegate {
 
         locationNodes.append(locationNode)
         sceneNode?.addChildNode(locationNode)
-        print("ADDDDED BOIS")
     }
 
     /// Determine if scene contains a node with the specified tag

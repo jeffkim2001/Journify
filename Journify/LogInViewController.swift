@@ -11,10 +11,9 @@ import ARKit
 import FirebaseAuth
 import SVProgressHUD
 import SCLAlertView
+import ARCL
 
 class LogInViewController: UIViewController {
-
-
     
     @IBOutlet weak var registerFromLogInButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
@@ -26,10 +25,18 @@ class LogInViewController: UIViewController {
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var logInButton: UIButton!
     let textAttributes = [NSAttributedString.Key.font : UIFont(name: "Helvetica-Light", size: 20), NSAttributedString.Key.foregroundColor : UIColor.white]
-
+    var allAnnotations: [String:[LocationAnnotationNode]] = [:]
+    
+    @objc func updateAnnotations(_ notification: NSNotification) {
+        if let annotations = notification.userInfo?["annotations"] as? [String:[LocationAnnotationNode]] {
+            allAnnotations = annotations
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.updateAnnotations(_:)), name: Notification.Name(rawValue: "preserveAnnotations"), object: nil)
         userNameField.drawTextField()
         userNameField.placeholder = "Email"
         passwordField.placeholder = "Password"
@@ -111,6 +118,19 @@ class LogInViewController: UIViewController {
         Auth.auth().createUser(withEmail: userNameField.text!, password: passwordField.text!, completion: { (user, error) in
             if error != nil {
                 print(error!)
+                SVProgressHUD.dismiss()
+                let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(
+                    kTitleFont: UIFont(name: "HelveticaNeue-Light", size: 20)!,
+                    kTextFont: UIFont(name: "HelveticaNeue-Light", size: 14)!,
+                    kButtonFont: UIFont(name: "HelveticaNeue-Light", size: 14)!,
+                    showCloseButton: false
+                ))
+                alert.addButton("OK", action: {
+                    alert.dismiss(animated: true, completion: nil)
+                    self.passwordField.text = ""
+                    self.userNameField.text = ""
+                })
+                alert.showError("Registration Unsuccessful", subTitle: "Please put a valid email and password.")
             }
                 
             else{
@@ -140,13 +160,29 @@ class LogInViewController: UIViewController {
             
             if error != nil {
                 print(error!)
+                SVProgressHUD.dismiss()
+                let alert = SCLAlertView(appearance: SCLAlertView.SCLAppearance(
+                    kTitleFont: UIFont(name: "HelveticaNeue-Light", size: 20)!,
+                    kTextFont: UIFont(name: "HelveticaNeue-Light", size: 14)!,
+                    kButtonFont: UIFont(name: "HelveticaNeue-Light", size: 14)!,
+                    showCloseButton: false
+                ))
+                alert.addButton("OK", action: {
+                    alert.dismiss(animated: true, completion: nil)
+                    self.passwordField.text = ""
+                    self.userNameField.text = ""
+                })
+                alert.showError("Log In Unsuccessful", subTitle: "Your email and password were not recognized.")
             }
                 
             else {
                 print("Log in was successful.")
                 SVProgressHUD.dismiss()
-                let userID = Auth.auth().currentUser!.uid
                 let arVC = Bundle.main.loadNibNamed("ARViewController", owner: self, options: nil)!.first as? ARViewController
+                arVC?.view
+                print("AH", self.allAnnotations)
+                let annotationDict = ["annotations" : self.allAnnotations]
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: "transferAnnotations"), object: nil, userInfo: annotationDict)
                 self.navigationController?.pushViewController(arVC!, animated: true)
             }
         })

@@ -25,18 +25,11 @@ class ProfileViewController: UIViewController {
             annotationArray = annotations
             statCollectionView.reloadData()
             if annotationArray.count > 0 {
-                print("BOOOOOOOOOJIJ")
                 for index in 0 ..< annotationArray.count {
                     let annotation = MKPointAnnotation()
                     annotation.coordinate = annotationArray[index].location.coordinate
-                    print("WEQWEWEWE", annotation.coordinate)
-                    annotation.title = "Event"
                     eventMapView.addAnnotation(annotation)
-                    print("HHWHHHHH")
                 }
-            }
-            else {
-                print("AFAFDUASHDA")
             }
         }
     }
@@ -55,6 +48,16 @@ class ProfileViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
     
+    func calculateActiveDays(annotations: [LocationAnnotationNode]) -> Int {
+        var dates = [String]()
+        for index in 0..<annotations.count {
+            let date = annotations[index].date
+            if !dates.contains(date!) {
+                dates.append(date!)
+            }
+        }
+        return dates.count
+    }
 
 
 }
@@ -93,8 +96,13 @@ extension ProfileViewController: UICollectionViewDataSource {
             cell.stat.text = "\(annotationArray.count)"
         }
         else if indexPath.item == 1 {
-            cell.statName.text = "Followers"
-            cell.stat.text = "0"
+            cell.statName.text = "Active Days"
+            if annotationArray.count > 0 {
+                cell.stat.text = "\(calculateActiveDays(annotations: annotationArray))"
+            }
+            else {
+                cell.stat.text = "\(0)"
+            }
         }
         return cell
     }
